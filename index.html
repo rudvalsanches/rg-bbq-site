@@ -73,7 +73,7 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- HEADER -->
-    <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+    <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
             
             <!-- Logo -->
@@ -113,51 +113,65 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (VIDEO BACKGROUND) -->
-    <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
-        
-        <!-- Video Background -->
-        <div class="absolute inset-0 z-0">
-            <!-- 
-                NOTA: O atributo 'poster' abaixo está usando uma imagem online para funcionar na prévia.
-                Quando você baixar, o navegador tentará carregar 'video_churrasco.mp4'. 
-                Se o vídeo estiver na mesma pasta, ele tocará automaticamente.
-            -->
-            <video autoplay muted loop playsinline 
-                   poster="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920&auto=format&fit=crop"
-                   class="w-full h-full object-cover opacity-60">
-                <source src="video_churrasco.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos HTML5.
-            </video>
-            
-            <!-- Overlay escuro -->
-            <div class="absolute inset-0 bg-black/60 bg-gradient-to-t from-black via-transparent to-black/40"></div>
-        </div>
+    <!-- HERO SECTION (SPLIT LAYOUT: VIDEO LEFT, TEXT RIGHT) -->
+    <section class="relative min-h-screen flex items-center bg-black overflow-hidden pt-28 pb-12 md:pt-0 md:pb-0">
+        <!-- Background decoration (sutil) -->
+        <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-radial from-gray-900 to-black opacity-40 z-0 pointer-events-none"></div>
 
-        <!-- Conteúdo Centralizado -->
-        <div class="container mx-auto px-6 relative z-10 text-center animate-fade-in-up">
-            
-            <span class="inline-block text-gray-300 text-sm md:text-base tracking-[0.4em] uppercase mb-4 border-b border-rg-orange pb-2">
-                Seu Evento, Nosso Fogo
-            </span>
-            
-            <h2 class="font-heading text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6 drop-shadow-2xl">
-                A ARTE DA PARRILLA <br>
-                <span class="text-rg-orange">LEVADA ATÉ VOCÊ.</span>
-            </h2>
-            
-            <p class="text-lg md:text-2xl text-gray-200 font-light max-w-2xl mx-auto mb-8 text-shadow">
-                Churrasco premium completo, do corte à brasa, com a expertise de churrasqueiros certificados.
-            </p>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Coluna da Esquerda: Vídeo -->
+                <div class="relative group animate-fade-in-up order-1 md:order-1">
+                    <!-- Efeito de brilho atrás do vídeo -->
+                    <div class="absolute -inset-1 bg-gradient-to-tr from-rg-orange to-red-900 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    
+                    <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900">
+                        <!-- 
+                             Mantendo o poster online para prévia.
+                             O vídeo local será carregado se estiver na pasta correta.
+                        -->
+                        <video autoplay muted loop playsinline 
+                            poster="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop"
+                            class="w-full h-auto object-cover aspect-video shadow-lg">
+                             <source src="video_churrasco.mp4" type="video/mp4">
+                             Seu navegador não suporta vídeos HTML5.
+                         </video>
+                         <!-- Leve overlay para uniformizar -->
+                         <div class="absolute inset-0 bg-black/10"></div>
+                    </div>
+                </div>
 
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-                <a href="#contato" class="btn-glow bg-rg-orange text-black font-bold uppercase tracking-wider py-4 px-10 rounded-full transition transform hover:-translate-y-1 text-lg">
-                    Solicite seu Orçamento Premium
-                </a>
+                <!-- Coluna da Direita: Texto -->
+                <div class="text-left animate-fade-in-up delay-100 order-2 md:order-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-px w-8 bg-rg-orange"></div>
+                        <span class="text-rg-orange font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
+                            Seu Evento, Nosso Fogo
+                        </span>
+                    </div>
+                    
+                    <h2 class="font-heading text-4xl md:text-6xl font-extrabold leading-tight text-white mb-6">
+                        A ARTE DA PARRILLA <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-rg-orange to-orange-400">LEVADA ATÉ VOCÊ.</span>
+                    </h2>
+                    
+                    <p class="text-lg text-gray-400 font-light mb-8 max-w-lg leading-relaxed">
+                        Churrasco premium completo, do corte à brasa, com a expertise de churrasqueiros certificados. Você cuida dos convidados, nós cuidamos do espetáculo.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 items-start">
+                        <a href="#contato" class="btn-glow bg-rg-orange text-black font-bold uppercase tracking-wider py-4 px-8 rounded-full transition transform hover:-translate-y-1 text-center shadow-lg shadow-orange-500/20">
+                            Solicite Orçamento
+                        </a>
+                    </div>
+                     <p class="mt-4 text-xs text-gray-500 italic flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full inline-block"></span>
+                        Agenda aberta para 2024/2025
+                    </p>
+                </div>
+
             </div>
-            <p class="mt-4 text-xs text-gray-400 italic">
-                * Atendimento sob disponibilidade de agenda.
-            </p>
         </div>
     </section>
 
