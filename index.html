@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&G BBQ | Churrasco Parrilla Premium</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons (Lucide via UNPKG for simple SVG usage) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração de Cores Personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rg: {
+                            black: '#000000',
+                            dark: '#0a0a0a',
+                            gray: '#1f1f1f',
+                            orange: '#f7931e',
+                            light: '#e5e5e5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Ajustes finos de CSS */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(247, 147, 30, 0.6);
+        }
+
+        /* Estilo para input autofill não ficar branco */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus {
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0px 1000px #1f1f1f inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="text-center md:text-left mb-4 md:mb-0">
+                <h1 class="font-heading font-bold text-3xl tracking-[0.2em] text-rg-orange hover:text-white transition-colors cursor-pointer">
+                    R&G BBQ
+                </h1>
+                <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mt-1">
+                    A experiência que transforma seu evento
+                </p>
+            </div>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#sobre" class="text-gray-300 hover:text-rg-orange transition-colors">SOBRE</a>
+                <a href="#pacote" class="text-gray-300 hover:text-rg-orange transition-colors">PACOTE</a>
+                <a href="#cardapios" class="text-gray-300 hover:text-rg-orange transition-colors">CARDÁPIOS</a>
+                <a href="#bebidas" class="text-gray-300 hover:text-rg-orange transition-colors">BEBIDAS</a>
+                <a href="#contato" class="bg-white/10 px-5 py-2 rounded-full hover:bg-rg-orange hover:text-black transition-all">CONTATO</a>
+            </nav>
+
+            <!-- Menu Mobile Button -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white absolute top-6 right-6">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-rg-gray border-t border-white/10">
+            <nav class="flex flex-col p-6 space-y-4 text-center">
+                <a href="#sobre" class="text-gray-300 hover:text-rg-orange">SOBRE</a>
+                <a href="#pacote" class="text-gray-300 hover:text-rg-orange">PACOTE</a>
+                <a href="#cardapios" class="text-gray-300 hover:text-rg-orange">CARDÁPIOS</a>
+                <a href="#bebidas" class="text-gray-300 hover:text-rg-orange">BEBIDAS</a>
+                <a href="#contato" class="text-rg-orange font-bold">SOLICITAR ORÇAMENTO</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (VIDEO BACKGROUND) -->
+    <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
+        
+        <!-- Video Background -->
+        <div class="absolute inset-0 z-0">
+            <!-- 
+                NOTA: O atributo 'poster' abaixo está usando uma imagem online para funcionar na prévia.
+                Quando você baixar, o navegador tentará carregar 'video_churrasco.mp4'. 
+                Se o vídeo estiver na mesma pasta, ele tocará automaticamente.
+            -->
+            <video autoplay muted loop playsinline 
+                   poster="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920&auto=format&fit=crop"
+                   class="w-full h-full object-cover opacity-60">
+                <source src="video_churrasco.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            
+            <!-- Overlay escuro -->
+            <div class="absolute inset-0 bg-black/60 bg-gradient-to-t from-black via-transparent to-black/40"></div>
+        </div>
+
+        <!-- Conteúdo Centralizado -->
+        <div class="container mx-auto px-6 relative z-10 text-center animate-fade-in-up">
+            
+            <span class="inline-block text-gray-300 text-sm md:text-base tracking-[0.4em] uppercase mb-4 border-b border-rg-orange pb-2">
+                Seu Evento, Nosso Fogo
+            </span>
+            
+            <h2 class="font-heading text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6 drop-shadow-2xl">
+                A ARTE DA PARRILLA <br>
+                <span class="text-rg-orange">LEVADA ATÉ VOCÊ.</span>
+            </h2>
+            
+            <p class="text-lg md:text-2xl text-gray-200 font-light max-w-2xl mx-auto mb-8 text-shadow">
+                Churrasco premium completo, do corte à brasa, com a expertise de churrasqueiros certificados.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="#contato" class="btn-glow bg-rg-orange text-black font-bold uppercase tracking-wider py-4 px-10 rounded-full transition transform hover:-translate-y-1 text-lg">
+                    Solicite seu Orçamento Premium
+                </a>
+            </div>
+            <p class="mt-4 text-xs text-gray-400 italic">
+                * Atendimento sob disponibilidade de agenda.
+            </p>
+        </div>
+    </section>
+
+    <!-- SOBRE (IMAGEM + TEXTO) -->
+    <section id="sobre" class="py-24 bg-rg-gray/20 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            
+            <!-- Layout: Texto à Esquerda, Imagem à Direita -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                
+                <!-- Coluna de Texto -->
+                <div class="text-left order-2 md:order-1">
+                    <h3 class="font-heading text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                        MAIS QUE CHURRASCO, <br>
+                        <span class="text-rg-orange">UMA EXPERIÊNCIA.</span>
+                    </h3>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Rudval e Guilherme uniram a paixão pela brasa à técnica apurada em cursos de churrasco.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        São especializados na culinária parrilleira, garantindo o ponto perfeito e a suculência inigualável que seu evento merece. Não entregam apenas comida, entregam um show gastronômico.
+                    </p>
+                    <div class="flex items-center gap-4 text-rg-orange font-bold uppercase text-sm tracking-wider">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                        <span>Certificação de Churrasco</span>
+                    </div>
+                </div>
+
+                <!-- Coluna da Imagem -->
+                <div class="relative group order-1 md:order-2">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-rg-orange to-red-600 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    <div class="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+                        
+                        <!-- 
+                           NOTA: Usando imagem online para prévia.
+                           Para usar a SUA imagem local, quando baixar o arquivo,
+                           certifique-se que o arquivo 'imagem_churrasco.jpg' esteja na mesma pasta.
+                           O 'onerror' abaixo fará a troca automática se a local falhar.
+                        -->
+                        <img src="imagem_churrasco.jpg" 
+                             onerror="this.src='https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=1000&auto=format&fit=crop'"
+                             alt="Equipe R&G BBQ na Parrilla" 
+                             class="w-full h-auto object-cover transform hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards de Detalhes -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-black/50 p-8 rounded-xl border border-white/5 hover:border-rg-orange/50 transition duration-300 group">
+                    <div class="bg-rg-gray w-14 h-14 rounded-full flex items-center justify-center mb-6 group-hover:bg-rg-orange transition-colors">
+                        <i data-lucide="flame" class="text-white w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Foco na Parrilla</h4>
+                    <p class="text-gray-400 text-sm">Grelhados no estilo uruguaio/argentino, com calor controlado, brasa constante e sabor levemente defumado.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-black/50 p-8 rounded-xl border border-white/5 hover:border-rg-orange/50 transition duration-300 group">
+                    <div class="bg-rg-gray w-14 h-14 rounded-full flex items-center justify-center mb-6 group-hover:bg-rg-orange transition-colors">
+                        <i data-lucide="beef" class="text-white w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Cortes Nobres</h4>
+                    <p class="text-gray-400 text-sm">Picanha, Bife Ancho, Chorizo, Assado de Tira e outros cortes selecionados. Cada peça é escolhida a dedo para o seu evento.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-black/50 p-8 rounded-xl border border-white/5 hover:border-rg-orange/50 transition duration-300 group">
+                    <div class="bg-rg-gray w-14 h-14 rounded-full flex items-center justify-center mb-6 group-hover:bg-rg-orange transition-colors">
+                        <i data-lucide="graduation-cap" class="text-white w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Churrasqueiros Certificados</h4>
+                    <p class="text-gray-400 text-sm">Formação técnica em churrasco e experiência prática para garantir o ponto ideal para cada convidado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACOTE ALL-INCLUSIVE -->
+    <section id="pacote" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="mb-12">
+                <h3 class="font-heading text-3xl font-bold text-white mb-2">SEU EVENTO. <span class="text-rg-orange">NOSSO PACOTE ALL-INCLUSIVE.</span></h3>
+                <p class="text-gray-400">Um serviço pensado para que você não se preocupe com nada na parte de churrasco.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Serviço 1 -->
+                <div class="border-l-2 border-rg-orange pl-6 py-2 hover:bg-white/5 transition rounded-r-lg">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i data-lucide="utensils-crossed" class="text-rg-orange w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Carnes e Preparo</h4>
+                    </div>
+                    <p class="text-sm text-gray-400">Seleção, compra e preparo de todos os cortes premium. Inclusão de acompanhamentos simples como farofa, vinagrete e pão de alho gourmet.</p>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="border-l-2 border-gray-700 pl-6 py-2 hover:border-rg-orange hover:bg-white/5 transition rounded-r-lg">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i data-lucide="settings" class="text-rg-orange w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Estrutura Completa</h4>
+                    </div>
+                    <p class="text-sm text-gray-400">Levamos nossas próprias parrillas, tábuas, facas, carvão/lenha e setup. Também podemos adaptar e usar a churrasqueira do local.</p>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="border-l-2 border-gray-700 pl-6 py-2 hover:border-rg-orange hover:bg-white/5 transition rounded-r-lg">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i data-lucide="chef-hat" class="text-rg-orange w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Churrasqueiro Chef</h4>
+                    </div>
+                    <p class="text-sm text-gray-400">Mão de obra especializada do início ao fim. Cuidamos da brasa, do ponto da carne e do serviço no buffet.</p>
+                </div>
+
+                <!-- Serviço 4 -->
+                <div class="border-l-2 border-gray-700 pl-6 py-2 hover:border-rg-orange hover:bg-white/5 transition rounded-r-lg">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i data-lucide="beer" class="text-rg-orange w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Bar e Bebidas (Opcional)</h4>
+                    </div>
+                    <p class="text-sm text-gray-400">Podemos incluir serviço completo de bebidas. Consulte-nos sobre pacote de drinks e harmonização.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDÁPIOS -->
+    <section id="cardapios" class="py-24 bg-zinc-900 relative">
+        <!-- Decoration background -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/50 to-transparent pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h3 class="font-heading text-4xl font-bold text-white mb-4">NOSSAS OPÇÕES DE CARDÁPIO</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">Três níveis de experiência para diferentes tipos de evento. Todos os cardápios podem ser personalizados.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                
+                <!-- Essencial -->
+                <div class="bg-black border border-gray-800 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition duration-300">
+                    <h4 class="font-heading text-2xl font-bold text-white mb-2">Essencial</h4>
+                    <p class="text-rg-orange text-xs uppercase tracking-widest mb-6">Eventos Casuais</p>
+                    <p class="text-gray-400 text-sm mb-8 border-b border-gray-800 pb-6">O clássico que nunca falha, com cortes selecionados para eventos casuais.</p>
+                    
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Contra Filé</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Fraldinha</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Linguiça Artesanal</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Pão de Alho</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Legumes na Brasa</li>
+                    </ul>
+                </div>
+
+                <!-- Clássico (Destaque) -->
+                <div class="bg-zinc-900 border border-rg-orange rounded-2xl p-8 relative transform md:-translate-y-4 shadow-2xl shadow-orange-900/20">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-rg-orange text-black font-bold text-xs uppercase px-4 py-1 rounded-full">
+                        Mais Vendido
+                    </div>
+                    <h4 class="font-heading text-3xl font-bold text-white mb-2">Clássico</h4>
+                    <p class="text-rg-orange text-xs uppercase tracking-widest mb-6">Experiência Parrilla</p>
+                    <p class="text-gray-400 text-sm mb-8 border-b border-gray-800 pb-6">A experiência completa da Parrilla com os cortes mais amados.</p>
+                    
+                    <ul class="space-y-4 text-sm text-white font-medium">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Ancho</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Bife de Chorizo</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Frango Marinado</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Queijo Coalho na Brasa</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Acompanhamentos Completos</li>
+                    </ul>
+                </div>
+
+                <!-- Master Grill -->
+                <div class="bg-black border border-gray-800 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition duration-300">
+                    <h4 class="font-heading text-2xl font-bold text-white mb-2">Master Grill</h4>
+                    <p class="text-rg-orange text-xs uppercase tracking-widest mb-6">Seleção Gourmet</p>
+                    <p class="text-gray-400 text-sm mb-8 border-b border-gray-800 pb-6">A seleção gourmet e cortes premium para um evento inesquecível.</p>
+                    
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Picanha Angus</li>
+                        <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Short Rib</li>
+                        <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Bife de Chorizo Premium</li>
+                        <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Costela Fogo Baixo</li>
+                        <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Acompanhamentos Especiais</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BEBIDAS (OPCIONAL) -->
+    <section id="bebidas" class="py-16 bg-black border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-2">BEBIDAS (OPCIONAL)</h3>
+                    <p class="text-gray-400 text-sm">Serviço complementar para seu evento.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
+                    <i data-lucide="beer" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
+                    <h5 class="font-bold text-white">Alcoólicas</h5>
+                    <p class="text-xs text-gray-500 mt-2">Cervejas e chopes artesanais</p>
+                </div>
+                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
+                    <i data-lucide="cup-soda" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
+                    <h5 class="font-bold text-white">Refrigerantes</h5>
+                    <p class="text-xs text-gray-500 mt-2">Linha completa</p>
+                </div>
+                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
+                    <i data-lucide="glass-water" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
+                    <h5 class="font-bold text-white">Sucos</h5>
+                    <p class="text-xs text-gray-500 mt-2">Naturais ou caixa</p>
+                </div>
+                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
+                    <i data-lucide="droplets" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
+                    <h5 class="font-bold text-white">Água</h5>
+                    <p class="text-xs text-gray-500 mt-2">Com e sem gás</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO / RESERVE SUA DATA -->
+    <section id="contato" class="relative py-24 flex items-center justify-center bg-zinc-900">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="bg-black/80 backdrop-blur-sm border border-white/10 p-8 md:p-12 rounded-2xl max-w-2xl mx-auto shadow-2xl">
+                <div class="text-center mb-8">
+                    <h3 class="font-heading text-3xl font-bold text-white mb-3">RESERVE SUA DATA</h3>
+                    <p class="text-gray-300 text-sm">Conte-nos sobre seu evento para receber uma proposta personalizada sem compromisso.</p>
+                </div>
+
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">Seu Nome Completo</label>
+                        <input type="text" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="Ex: João da Silva">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">Seu Melhor E-mail</label>
+                            <input type="email" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="email@exemplo.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">WhatsApp</label>
+                            <input type="tel" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="(XX) 99999-9999">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">Detalhes do Evento</label>
+                        <textarea rows="4" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="Data, Local e Número Estimado de Convidados..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-rg-orange text-black font-bold uppercase tracking-widest py-4 rounded-full hover:bg-white transition-colors duration-300 shadow-lg shadow-orange-600/20">
+                        Enviar Pedido de Orçamento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION STRIP -->
+    <div class="bg-rg-orange py-12">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="font-heading text-4xl font-black text-black tracking-tighter mb-2">R&G BBQ</h2>
+            <p class="text-black font-medium text-lg mb-0">Churrasco Parrilla Premium para Eventos</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 mt-4 text-black font-bold text-sm">
+                <span class="flex items-center justify-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> (11) 99999-9999</span>
+                <span class="hidden md:block">|</span>
+                <span class="flex items-center justify-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> contato@rgbbq.com.br</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-8 border-t border-gray-900">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600 text-xs">
+                © 2024 R&G BBQ. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script to render icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
