@@ -68,6 +68,15 @@
             -webkit-box-shadow: 0 0 0px 1000px #1f1f1f inset;
             transition: background-color 5000s ease-in-out 0s;
         }
+
+        /* Estilo customizado para os cards de seleção da calculadora */
+        .calc-card.selected {
+            border-color: #f7931e;
+            background-color: rgba(247, 147, 30, 0.1);
+        }
+        .calc-card.selected .check-icon {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -91,7 +100,7 @@
                 <a href="#sobre" class="text-gray-300 hover:text-rg-orange transition-colors">SOBRE</a>
                 <a href="#pacote" class="text-gray-300 hover:text-rg-orange transition-colors">PACOTE</a>
                 <a href="#cardapios" class="text-gray-300 hover:text-rg-orange transition-colors">CARDÁPIOS</a>
-                <a href="#bebidas" class="text-gray-300 hover:text-rg-orange transition-colors">BEBIDAS</a>
+                <a href="#simulador" class="text-rg-orange hover:text-white transition-colors">SIMULADOR</a>
                 <a href="#contato" class="bg-white/10 px-5 py-2 rounded-full hover:bg-rg-orange hover:text-black transition-all">CONTATO</a>
             </nav>
 
@@ -107,15 +116,14 @@
                 <a href="#sobre" class="text-gray-300 hover:text-rg-orange">SOBRE</a>
                 <a href="#pacote" class="text-gray-300 hover:text-rg-orange">PACOTE</a>
                 <a href="#cardapios" class="text-gray-300 hover:text-rg-orange">CARDÁPIOS</a>
-                <a href="#bebidas" class="text-gray-300 hover:text-rg-orange">BEBIDAS</a>
-                <a href="#contato" class="text-rg-orange font-bold">SOLICITAR ORÇAMENTO</a>
+                <a href="#simulador" class="text-rg-orange font-bold">SIMULAR VALOR</a>
+                <a href="#contato" class="text-white hover:text-rg-orange">CONTATO</a>
             </nav>
         </div>
     </header>
 
-    <!-- HERO SECTION (SPLIT LAYOUT: VIDEO LEFT, TEXT RIGHT) -->
+    <!-- HERO SECTION (SPLIT LAYOUT) -->
     <section class="relative min-h-screen flex items-center bg-black overflow-hidden pt-28 pb-12 md:pt-0 md:pb-0">
-        <!-- Background decoration (sutil) -->
         <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-radial from-gray-900 to-black opacity-40 z-0 pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-10">
@@ -123,21 +131,14 @@
                 
                 <!-- Coluna da Esquerda: Vídeo -->
                 <div class="relative group animate-fade-in-up order-1 md:order-1">
-                    <!-- Efeito de brilho atrás do vídeo -->
                     <div class="absolute -inset-1 bg-gradient-to-tr from-rg-orange to-red-900 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-                    
                     <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900">
-                        <!-- 
-                             Mantendo o poster online para prévia.
-                             O vídeo local será carregado se estiver na pasta correta.
-                        -->
                         <video autoplay muted loop playsinline 
                             poster="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop"
                             class="w-full h-auto object-cover aspect-video shadow-lg">
                              <source src="video_churrasco.mp4" type="video/mp4">
                              Seu navegador não suporta vídeos HTML5.
                          </video>
-                         <!-- Leve overlay para uniformizar -->
                          <div class="absolute inset-0 bg-black/10"></div>
                     </div>
                 </div>
@@ -161,8 +162,8 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 items-start">
-                        <a href="#contato" class="btn-glow bg-rg-orange text-black font-bold uppercase tracking-wider py-4 px-8 rounded-full transition transform hover:-translate-y-1 text-center shadow-lg shadow-orange-500/20">
-                            Solicite Orçamento
+                        <a href="#simulador" class="btn-glow bg-rg-orange text-black font-bold uppercase tracking-wider py-4 px-8 rounded-full transition transform hover:-translate-y-1 text-center shadow-lg shadow-orange-500/20">
+                            Simular Orçamento
                         </a>
                     </div>
                      <p class="mt-4 text-xs text-gray-500 italic flex items-center gap-2">
@@ -170,7 +171,6 @@
                         Agenda aberta para 2024/2025
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -178,11 +178,7 @@
     <!-- SOBRE (IMAGEM + TEXTO) -->
     <section id="sobre" class="py-24 bg-rg-gray/20 border-t border-white/5">
         <div class="container mx-auto px-6">
-            
-            <!-- Layout: Texto à Esquerda, Imagem à Direita -->
             <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                
-                <!-- Coluna de Texto -->
                 <div class="text-left order-2 md:order-1">
                     <h3 class="font-heading text-3xl md:text-5xl font-bold mb-6 leading-tight">
                         MAIS QUE CHURRASCO, <br>
@@ -192,60 +188,21 @@
                         Rudval e Guilherme uniram a paixão pela brasa à técnica apurada em cursos de churrasco.
                     </p>
                     <p class="text-gray-400 leading-relaxed mb-6">
-                        São especializados na culinária parrilleira, garantindo o ponto perfeito e a suculência inigualável que seu evento merece. Não entregam apenas comida, entregam um show gastronômico.
+                        São especializados na culinária parrilleira, garantindo o ponto perfeito e a suculência inigualável que seu evento merece.
                     </p>
                     <div class="flex items-center gap-4 text-rg-orange font-bold uppercase text-sm tracking-wider">
                         <i data-lucide="award" class="w-6 h-6"></i>
                         <span>Certificação de Churrasco</span>
                     </div>
                 </div>
-
-                <!-- Coluna da Imagem -->
                 <div class="relative group order-1 md:order-2">
                     <div class="absolute -inset-2 bg-gradient-to-r from-rg-orange to-red-600 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                     <div class="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
-                        
-                        <!-- 
-                           NOTA: Usando imagem online para prévia.
-                           Para usar a SUA imagem local, quando baixar o arquivo,
-                           certifique-se que o arquivo 'imagem_churrasco.jpg' esteja na mesma pasta.
-                           O 'onerror' abaixo fará a troca automática se a local falhar.
-                        -->
                         <img src="imagem_churrasco.jpg" 
                              onerror="this.src='https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=1000&auto=format&fit=crop'"
                              alt="Equipe R&G BBQ na Parrilla" 
                              class="w-full h-auto object-cover transform hover:scale-105 transition duration-700">
                     </div>
-                </div>
-            </div>
-
-            <!-- Cards de Detalhes -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-black/50 p-8 rounded-xl border border-white/5 hover:border-rg-orange/50 transition duration-300 group">
-                    <div class="bg-rg-gray w-14 h-14 rounded-full flex items-center justify-center mb-6 group-hover:bg-rg-orange transition-colors">
-                        <i data-lucide="flame" class="text-white w-7 h-7"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3 text-white">Foco na Parrilla</h4>
-                    <p class="text-gray-400 text-sm">Grelhados no estilo uruguaio/argentino, com calor controlado, brasa constante e sabor levemente defumado.</p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-black/50 p-8 rounded-xl border border-white/5 hover:border-rg-orange/50 transition duration-300 group">
-                    <div class="bg-rg-gray w-14 h-14 rounded-full flex items-center justify-center mb-6 group-hover:bg-rg-orange transition-colors">
-                        <i data-lucide="beef" class="text-white w-7 h-7"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3 text-white">Cortes Nobres</h4>
-                    <p class="text-gray-400 text-sm">Picanha, Bife Ancho, Chorizo, Assado de Tira e outros cortes selecionados. Cada peça é escolhida a dedo para o seu evento.</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-black/50 p-8 rounded-xl border border-white/5 hover:border-rg-orange/50 transition duration-300 group">
-                    <div class="bg-rg-gray w-14 h-14 rounded-full flex items-center justify-center mb-6 group-hover:bg-rg-orange transition-colors">
-                        <i data-lucide="graduation-cap" class="text-white w-7 h-7"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3 text-white">Churrasqueiros Certificados</h4>
-                    <p class="text-gray-400 text-sm">Formação técnica em churrasco e experiência prática para garantir o ponto ideal para cada convidado.</p>
                 </div>
             </div>
         </div>
@@ -256,60 +213,49 @@
         <div class="container mx-auto px-6">
             <div class="mb-12">
                 <h3 class="font-heading text-3xl font-bold text-white mb-2">SEU EVENTO. <span class="text-rg-orange">NOSSO PACOTE ALL-INCLUSIVE.</span></h3>
-                <p class="text-gray-400">Um serviço pensado para que você não se preocupe com nada na parte de churrasco.</p>
+                <p class="text-gray-400">Um serviço pensado para que você não se preocupe com nada.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Serviço 1 -->
                 <div class="border-l-2 border-rg-orange pl-6 py-2 hover:bg-white/5 transition rounded-r-lg">
                     <div class="flex items-center gap-3 mb-3">
                         <i data-lucide="utensils-crossed" class="text-rg-orange w-5 h-5"></i>
                         <h4 class="font-bold text-lg">Carnes e Preparo</h4>
                     </div>
-                    <p class="text-sm text-gray-400">Seleção, compra e preparo de todos os cortes premium. Inclusão de acompanhamentos simples como farofa, vinagrete e pão de alho gourmet.</p>
+                    <p class="text-sm text-gray-400">Seleção, compra e preparo de todos os cortes premium.</p>
                 </div>
-
-                <!-- Serviço 2 -->
                 <div class="border-l-2 border-gray-700 pl-6 py-2 hover:border-rg-orange hover:bg-white/5 transition rounded-r-lg">
                     <div class="flex items-center gap-3 mb-3">
                         <i data-lucide="settings" class="text-rg-orange w-5 h-5"></i>
                         <h4 class="font-bold text-lg">Estrutura Completa</h4>
                     </div>
-                    <p class="text-sm text-gray-400">Levamos nossas próprias parrillas, tábuas, facas, carvão/lenha e setup. Também podemos adaptar e usar a churrasqueira do local.</p>
+                    <p class="text-sm text-gray-400">Levamos nossas próprias parrillas, tábuas e utensílios.</p>
                 </div>
-
-                <!-- Serviço 3 -->
                 <div class="border-l-2 border-gray-700 pl-6 py-2 hover:border-rg-orange hover:bg-white/5 transition rounded-r-lg">
                     <div class="flex items-center gap-3 mb-3">
                         <i data-lucide="chef-hat" class="text-rg-orange w-5 h-5"></i>
                         <h4 class="font-bold text-lg">Churrasqueiro Chef</h4>
                     </div>
-                    <p class="text-sm text-gray-400">Mão de obra especializada do início ao fim. Cuidamos da brasa, do ponto da carne e do serviço no buffet.</p>
+                    <p class="text-sm text-gray-400">Mão de obra especializada do início ao fim.</p>
                 </div>
-
-                <!-- Serviço 4 -->
                 <div class="border-l-2 border-gray-700 pl-6 py-2 hover:border-rg-orange hover:bg-white/5 transition rounded-r-lg">
                     <div class="flex items-center gap-3 mb-3">
                         <i data-lucide="beer" class="text-rg-orange w-5 h-5"></i>
                         <h4 class="font-bold text-lg">Bar e Bebidas (Opcional)</h4>
                     </div>
-                    <p class="text-sm text-gray-400">Podemos incluir serviço completo de bebidas. Consulte-nos sobre pacote de drinks e harmonização.</p>
+                    <p class="text-sm text-gray-400">Podemos incluir serviço completo de bebidas.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- CARDÁPIOS -->
     <section id="cardapios" class="py-24 bg-zinc-900 relative">
-        <!-- Decoration background -->
         <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/50 to-transparent pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
                 <h3 class="font-heading text-4xl font-bold text-white mb-4">NOSSAS OPÇÕES DE CARDÁPIO</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">Três níveis de experiência para diferentes tipos de evento. Todos os cardápios podem ser personalizados.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">Três níveis de experiência para diferentes tipos de evento.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 items-start">
@@ -318,15 +264,14 @@
                 <div class="bg-black border border-gray-800 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition duration-300">
                     <h4 class="font-heading text-2xl font-bold text-white mb-2">Essencial</h4>
                     <p class="text-rg-orange text-xs uppercase tracking-widest mb-6">Eventos Casuais</p>
-                    <p class="text-gray-400 text-sm mb-8 border-b border-gray-800 pb-6">O clássico que nunca falha, com cortes selecionados para eventos casuais.</p>
-                    
-                    <ul class="space-y-4 text-sm text-gray-300">
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8">
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Contra Filé</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Fraldinha</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Linguiça Artesanal</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Pão de Alho</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Legumes na Brasa</li>
                     </ul>
+                    <p class="text-xs text-gray-500">*A partir de R$ 89,00/pessoa</p>
                 </div>
 
                 <!-- Clássico (Destaque) -->
@@ -336,67 +281,132 @@
                     </div>
                     <h4 class="font-heading text-3xl font-bold text-white mb-2">Clássico</h4>
                     <p class="text-rg-orange text-xs uppercase tracking-widest mb-6">Experiência Parrilla</p>
-                    <p class="text-gray-400 text-sm mb-8 border-b border-gray-800 pb-6">A experiência completa da Parrilla com os cortes mais amados.</p>
-                    
-                    <ul class="space-y-4 text-sm text-white font-medium">
+                    <ul class="space-y-4 text-sm text-white font-medium mb-8">
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Ancho</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Bife de Chorizo</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Frango Marinado</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Queijo Coalho na Brasa</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="text-rg-orange w-4 h-4"></i> Acompanhamentos Completos</li>
                     </ul>
+                    <p class="text-xs text-gray-400">*A partir de R$ 139,00/pessoa</p>
                 </div>
 
                 <!-- Master Grill -->
                 <div class="bg-black border border-gray-800 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition duration-300">
                     <h4 class="font-heading text-2xl font-bold text-white mb-2">Master Grill</h4>
                     <p class="text-rg-orange text-xs uppercase tracking-widest mb-6">Seleção Gourmet</p>
-                    <p class="text-gray-400 text-sm mb-8 border-b border-gray-800 pb-6">A seleção gourmet e cortes premium para um evento inesquecível.</p>
-                    
-                    <ul class="space-y-4 text-sm text-gray-300">
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8">
                         <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Picanha Angus</li>
                         <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Short Rib</li>
                         <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Bife de Chorizo Premium</li>
                         <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Costela Fogo Baixo</li>
-                        <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Acompanhamentos Especiais</li>
+                        <li class="flex items-center gap-3"><i data-lucide="star" class="text-rg-orange w-4 h-4"></i> Acomp. Especiais</li>
                     </ul>
+                    <p class="text-xs text-gray-500">*A partir de R$ 220,00/pessoa</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- BEBIDAS (OPCIONAL) -->
-    <section id="bebidas" class="py-16 bg-black border-t border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
-                <div>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-2">BEBIDAS (OPCIONAL)</h3>
-                    <p class="text-gray-400 text-sm">Serviço complementar para seu evento.</p>
-                </div>
+    <!-- CALCULADORA DE CHURRASCO (COMPACTA) -->
+    <section id="simulador" class="py-20 bg-black relative border-t border-white/10">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-8">
+                <span class="text-rg-orange font-bold uppercase tracking-widest text-xs">Simulador</span>
+                <h3 class="font-heading text-3xl font-bold text-white mt-2">QUANTO VAI CUSTAR?</h3>
+                <p class="text-gray-400 text-sm mt-2">Simule rapidamente o investimento do seu evento.</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
-                    <i data-lucide="beer" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
-                    <h5 class="font-bold text-white">Alcoólicas</h5>
-                    <p class="text-xs text-gray-500 mt-2">Cervejas e chopes artesanais</p>
+            <!-- Box da Calculadora -->
+            <div class="bg-zinc-900 border border-white/5 rounded-2xl p-6 shadow-2xl">
+                
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Coluna 1: Convidados (Compacta) -->
+                    <div class="md:col-span-4 space-y-4">
+                        <h4 class="text-white font-bold text-sm uppercase tracking-wider text-rg-orange mb-4">1. Convidados</h4>
+                        
+                        <!-- Adultos -->
+                        <div class="flex items-center justify-between bg-black p-3 rounded-lg border border-gray-800">
+                            <div>
+                                <p class="text-white font-bold text-sm">Adultos</p>
+                                <p class="text-[10px] text-gray-500">Valor integral</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button onclick="updateGuests('adults', -1)" class="w-7 h-7 rounded-full bg-gray-800 hover:bg-rg-orange hover:text-black transition flex items-center justify-center text-white font-bold text-sm">-</button>
+                                <span id="count-adults" class="text-lg font-bold w-6 text-center">30</span>
+                                <button onclick="updateGuests('adults', 1)" class="w-7 h-7 rounded-full bg-gray-800 hover:bg-rg-orange hover:text-black transition flex items-center justify-center text-white font-bold text-sm">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Crianças -->
+                        <div class="flex items-center justify-between bg-black p-3 rounded-lg border border-gray-800">
+                            <div>
+                                <p class="text-white font-bold text-sm">Crianças</p>
+                                <p class="text-[10px] text-gray-500">6-10 anos (50%)</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button onclick="updateGuests('kids', -1)" class="w-7 h-7 rounded-full bg-gray-800 hover:bg-rg-orange hover:text-black transition flex items-center justify-center text-white font-bold text-sm">-</button>
+                                <span id="count-kids" class="text-lg font-bold w-6 text-center">0</span>
+                                <button onclick="updateGuests('kids', 1)" class="w-7 h-7 rounded-full bg-gray-800 hover:bg-rg-orange hover:text-black transition flex items-center justify-center text-white font-bold text-sm">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: Pacotes (Compacta) -->
+                    <div class="md:col-span-8">
+                         <h4 class="text-white font-bold text-sm uppercase tracking-wider text-rg-orange mb-4">2. Escolha o Pacote</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <!-- Card Opção 1 -->
+                            <div onclick="selectPackage('essencial')" id="card-essencial" class="calc-card cursor-pointer bg-black p-3 rounded-lg border border-gray-800 hover:border-gray-600 transition relative h-full">
+                                <div class="flex justify-between items-center mb-1">
+                                    <p class="text-white font-bold text-sm">Essencial</p>
+                                    <div class="check-icon opacity-0 text-rg-orange scale-75"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+                                </div>
+                                <p class="text-[10px] text-gray-500 leading-tight">Contra Filé, Fraldinha, Linguiça...</p>
+                            </div>
+
+                            <!-- Card Opção 2 -->
+                            <div onclick="selectPackage('classico')" id="card-classico" class="calc-card selected cursor-pointer bg-black p-3 rounded-lg border border-rg-orange bg-orange-900/10 transition relative h-full">
+                                <div class="flex justify-between items-center mb-1">
+                                    <p class="text-white font-bold text-sm">Clássico</p>
+                                    <div class="check-icon opacity-100 text-rg-orange scale-75"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+                                </div>
+                                <p class="text-[10px] text-gray-500 leading-tight">Ancho, Chorizo, Frango, Coalho...</p>
+                            </div>
+
+                            <!-- Card Opção 3 -->
+                            <div onclick="selectPackage('master')" id="card-master" class="calc-card cursor-pointer bg-black p-3 rounded-lg border border-gray-800 hover:border-gray-600 transition relative h-full">
+                                <div class="flex justify-between items-center mb-1">
+                                    <p class="text-white font-bold text-sm">Master</p>
+                                    <div class="check-icon opacity-0 text-rg-orange scale-75"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+                                </div>
+                                <p class="text-[10px] text-gray-500 leading-tight">Picanha, Short Rib, Costela...</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
-                    <i data-lucide="cup-soda" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
-                    <h5 class="font-bold text-white">Refrigerantes</h5>
-                    <p class="text-xs text-gray-500 mt-2">Linha completa</p>
+
+                <!-- Resultado (Barra Inferior) -->
+                <div class="mt-8 bg-black rounded-xl p-4 border-t border-rg-orange/30 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-center md:text-left flex-grow">
+                        <div class="flex items-baseline justify-center md:justify-start gap-3">
+                             <p class="text-gray-400 text-xs">Total Estimado:</p>
+                             <p id="total-price" class="text-2xl md:text-3xl font-bold text-white text-rg-orange">R$ 4.170,00</p>
+                        </div>
+                        <p id="alert-min" class="text-[10px] text-red-400 hidden mt-1">*Mínimo de 25 pessoas ou taxa fixa.</p>
+                    </div>
+                    <a href="https://wa.me/5511999999999" target="_blank" class="btn-glow bg-green-600 text-white text-sm font-bold py-2 px-6 rounded-full hover:bg-green-500 transition flex items-center gap-2 whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        Agendar
+                    </a>
                 </div>
-                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
-                    <i data-lucide="glass-water" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
-                    <h5 class="font-bold text-white">Sucos</h5>
-                    <p class="text-xs text-gray-500 mt-2">Naturais ou caixa</p>
-                </div>
-                <div class="bg-gray-900/50 p-6 rounded-lg text-center border border-transparent hover:border-rg-orange/30 transition">
-                    <i data-lucide="droplets" class="mx-auto text-rg-orange w-8 h-8 mb-3"></i>
-                    <h5 class="font-bold text-white">Água</h5>
-                    <p class="text-xs text-gray-500 mt-2">Com e sem gás</p>
-                </div>
+                 <p class="text-[9px] text-gray-700 text-center mt-3">
+                    *Valores aproximados para simulação. Não inclui frete.
+                </p>
+
             </div>
         </div>
     </section>
@@ -407,64 +417,136 @@
             <div class="bg-black/80 backdrop-blur-sm border border-white/10 p-8 md:p-12 rounded-2xl max-w-2xl mx-auto shadow-2xl">
                 <div class="text-center mb-8">
                     <h3 class="font-heading text-3xl font-bold text-white mb-3">RESERVE SUA DATA</h3>
-                    <p class="text-gray-300 text-sm">Conte-nos sobre seu evento para receber uma proposta personalizada sem compromisso.</p>
+                    <p class="text-gray-300 text-sm">Prefere enviar um e-mail? Preencha abaixo.</p>
                 </div>
 
                 <form class="space-y-6">
                     <div>
-                        <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">Seu Nome Completo</label>
-                        <input type="text" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="Ex: João da Silva">
+                        <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">Seu Nome</label>
+                        <input type="text" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition">
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">Seu Melhor E-mail</label>
-                            <input type="email" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="email@exemplo.com">
+                            <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">E-mail</label>
+                            <input type="email" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">WhatsApp</label>
-                            <input type="tel" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="(XX) 99999-9999">
+                            <input type="tel" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition">
                         </div>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-rg-orange uppercase tracking-wider mb-2">Detalhes do Evento</label>
-                        <textarea rows="4" class="w-full bg-rg-gray border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rg-orange focus:ring-1 focus:ring-rg-orange transition" placeholder="Data, Local e Número Estimado de Convidados..."></textarea>
-                    </div>
-
                     <button type="submit" class="w-full bg-rg-orange text-black font-bold uppercase tracking-widest py-4 rounded-full hover:bg-white transition-colors duration-300 shadow-lg shadow-orange-600/20">
-                        Enviar Pedido de Orçamento
+                        Enviar Pedido
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- CALL TO ACTION STRIP -->
-    <div class="bg-rg-orange py-12">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="font-heading text-4xl font-black text-black tracking-tighter mb-2">R&G BBQ</h2>
-            <p class="text-black font-medium text-lg mb-0">Churrasco Parrilla Premium para Eventos</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4 mt-4 text-black font-bold text-sm">
-                <span class="flex items-center justify-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> (11) 99999-9999</span>
-                <span class="hidden md:block">|</span>
-                <span class="flex items-center justify-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> contato@rgbbq.com.br</span>
-            </div>
-        </div>
-    </div>
-
     <!-- FOOTER -->
     <footer class="bg-black py-8 border-t border-gray-900">
         <div class="container mx-auto text-center">
             <p class="text-gray-600 text-xs">
-                © 2024 R&G BBQ. Todos os direitos reservados.
+                © 2025 R&G BBQ. Todos os direitos reservados.
             </p>
         </div>
     </footer>
 
-    <!-- Script to render icons -->
+    <!-- Scripts -->
     <script>
+        // Render Icons
         lucide.createIcons();
+
+        // --- LÓGICA DA CALCULADORA ---
+        
+        // Preços Base (Por Pessoa) - Baseado no Manual
+        const prices = {
+            essencial: 69,
+            classico: 109,
+            master: 189
+        };
+
+        // Estado Inicial
+        let state = {
+            adults: 30, // Começa com 30 para não cair na regra de mínimo logo de cara
+            kids: 0,
+            package: 'classico' // Default
+        };
+
+        // Função para atualizar quantidade de pessoas
+        function updateGuests(type, change) {
+            const newValue = state[type] + change;
+            if (newValue < 0) return; // Não permite negativo
+            
+            state[type] = newValue;
+            
+            // Atualiza o display do número
+            document.getElementById(`count-${type}`).innerText = state[type];
+            
+            calculateTotal();
+        }
+
+        // Função para selecionar pacote
+        function selectPackage(pkg) {
+            state.package = pkg;
+            
+            // Atualiza visual dos cards
+            // Remove classe selecionada de todos
+            document.querySelectorAll('.calc-card').forEach(card => {
+                card.classList.remove('selected', 'border-rg-orange', 'bg-orange-900/10');
+                card.classList.add('border-gray-800');
+                card.querySelector('.check-icon').classList.remove('opacity-100');
+                card.querySelector('.check-icon').classList.add('opacity-0');
+            });
+
+            // Adiciona ao selecionado
+            const selectedCard = document.getElementById(`card-${pkg}`);
+            selectedCard.classList.add('selected', 'border-rg-orange', 'bg-orange-900/10');
+            selectedCard.classList.remove('border-gray-800');
+            selectedCard.querySelector('.check-icon').classList.remove('opacity-0');
+            selectedCard.querySelector('.check-icon').classList.add('opacity-100');
+
+            calculateTotal();
+        }
+
+        // Função Principal de Cálculo
+        function calculateTotal() {
+            const pricePerAdult = prices[state.package];
+            const pricePerKid = pricePerAdult / 2; // Criança paga meia
+            
+            let total = (state.adults * pricePerAdult) + (state.kids * pricePerKid);
+            const totalPeople = state.adults + state.kids;
+
+            // Regra de Mínimo (Ex: Se der menos que 25 pessoas, avisa ou fixa um mínimo)
+            const minPeople = 25;
+            const alertMin = document.getElementById('alert-min');
+
+            if (totalPeople < minPeople && totalPeople > 0) {
+                // Opção A: Mostrar alerta
+                alertMin.classList.remove('hidden');
+                // Opção B: Cobrar taxa mínima (Ex: simulando como se fossem 25 pessoas do pacote essencial pelo menos)
+                // Vamos manter o calculo real mas com o alerta visivel
+            } else {
+                alertMin.classList.add('hidden');
+            }
+
+            // Formatação de Moeda
+            const formattedTotal = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            
+            // Animação simples do valor trocando
+            const priceEl = document.getElementById('total-price');
+            priceEl.style.opacity = 0.5;
+            setTimeout(() => {
+                priceEl.innerText = formattedTotal;
+                priceEl.style.opacity = 1;
+            }, 150);
+        }
+
+        // Inicializa o cálculo ao carregar
+        calculateTotal();
+
     </script>
 </body>
 </html>
